@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title> add post </title>
+ {% endblock %}
+
+{% block body %} 
+	
+	{{ form.hidden_tag() }}
+
+	<form action= "{{ url_for('add_post') }}" method = post>
+ 		<fieldset>
+ 			<legend>Add Posts</legend>
+ 			<br>
+ 			<div class="form-group">
+ 				<strong>{{ form.title.label(class='form-control-label') }}</strong>	
+ 				{{ form.title(placeholder='Enter the title', class='form-control') }}	
+ 			<br>
+ 				<strong>{{ form.author.label(class='form-control-label') }}</strong>
+ 				{{ form.author(placeholder='Enter the author name', class='form-control') }}
+ 			<br>
+ 				<strong>{{ form.post.label(class='form-control-label') }}</strong>
+ 				{{ form.post(placeholder='Enter the content', class='form-control') }}
+ 			</div>	
+ 			
+ 		</fieldset>
+ 		<br>
+ 		<input type="submit" class="btn btn-primary" value="Add Post"/>
+
+ 	</form>	
+
+
+ {% endblock %}

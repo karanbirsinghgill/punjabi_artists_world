@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+	<title> edit </title>
+{% endblock %}
+
+{% block body %} 
+			
+		{{ form.hidden_tag() }}
+
+		<form action= "/edit/{{blog.post_id}}" method = post>
+	 		<fieldset>
+	 			<legend>Edit Post</legend>
+	 			<div class="form-group">
+	 				<br>
+	 				<strong>{{ form.title.label(class='form-control-label') }}</strong>	
+	 				{{ form.title( class='form-control') }}	
+	 				<br>
+	 				<strong>{{ form.author.label(class='form-control-label') }}</strong>
+	 				{{ form.author(class='form-control') }}
+	 				<br>
+	 				<strong>{{ form.post.label(class='form-control-label') }}</strong>
+	 				{{ form.post(class='form-control', rows="3") }}
+ 				</div>	
+ 			
+ 		</fieldset>
+ 		<br>
+ 		<input type="submit" class="btn btn-primary" value="Save Changes"/>
+
+	 	</form>	
+
+
+ {% endblock %}

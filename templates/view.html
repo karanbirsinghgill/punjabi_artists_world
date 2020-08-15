@@ -1,0 +1,43 @@
+
+{% extends 'base.html' %}
+
+{% block head %}
+<title> posts </title>
+ {% endblock %}
+
+{% block body %} 
+
+<br>
+
+<div>
+	<h2 style="display:inline"> ALL POSTS </h2>
+	<a style="display:inline" class='btn btn-success float-right ' href="{{ url_for('add_post') }}">Add New Post</a>
+</div>
+
+
+<br>
+	
+
+	{% for blog in blogs %}
+
+		{% if blog  %}
+
+			<hr>
+				<br>
+				<h3> {{ blog.title }}</h3> 
+				<small>Posted by: {{ blog.author }} on {{ blog.date_created }}</small>	
+				<br>
+				<br>
+				<p style="white-space:pre-wrap;"> {{ blog.post }} </p>
+				
+				<br>
+				<a class="btn btn-danger" href="/delete/{{ blog.post_id }}">Delete</a>
+				<a class="btn btn-primary" href="/edit/{{ blog.post_id }}">Edit</a>
+
+			</hr>
+
+		{% endif %}
+
+	{% endfor %}	
+
+{% endblock %}
